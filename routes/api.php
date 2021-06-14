@@ -41,6 +41,7 @@ Route::post('/dps/datatable', 'Api\DpsApiController@dpsDatatable');
 Route::get('/dps/detail/{id}', 'Api\DpsApiController@detail');
 Route::post('/dps/delete/{id}', 'Api\DpsApiController@delete');
 Route::get('/dps/nik/{nik}', 'Api\DpsApiController@getByNik');
+Route::post('/dps/import', 'Api\DpsApiController@importFile');
 
 //Absence
 Route::post('/absence', 'Api\AbsenceApiController@save');

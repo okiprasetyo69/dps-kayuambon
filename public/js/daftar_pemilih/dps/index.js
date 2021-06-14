@@ -150,7 +150,6 @@ function addDps() {
 }
 
 function importFile() {
-    //console.log("test");
     $("#modalImportFile").modal("toggle");
 }
 

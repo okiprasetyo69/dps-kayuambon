@@ -37,4 +37,9 @@ $(document).ready(function () {
             },
         });
     });
+
+    //Import file
+    $("body").on("submit", "#frm-import-file", function(e){
+        console.log('Masuk')
+    });
 });

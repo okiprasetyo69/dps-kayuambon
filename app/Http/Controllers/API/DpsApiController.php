@@ -14,6 +14,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 Use Redirect;
+use App\Imports\DpsImport;
+use Excel;
 
 class DpsApiController extends BaseApiController
 {
@@ -125,5 +127,10 @@ class DpsApiController extends BaseApiController
         $query = DpsList::where("nik", "like", "%".$nik."%");
         $data_get = $query->first();
         return $data_get;
+    }
+
+    public function importFile(Request $request){
+        Excel::import(new DpsImport);
+        return response()->json('Success import', 200);
     }
 }

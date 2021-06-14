@@ -4,11 +4,34 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <title>Desa Kayuambon</title>
+    <link href="{{ asset('') }}css/styles.css" rel="stylesheet" />
+    <link href="{{ asset('') }}css/custom.css" rel="stylesheet" />
+    <!-- TODO : Resolve this datatable css, still on CDN -->
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <!-- TODO : Cannot save inti local project cz some image stored in cloud -->
+    <link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ asset('') }}assets/jqueryconfirm/jquery-confirm.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('')}}assets/jquerysignature/jquery.signature.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Base Project">
+    <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <script src="{{asset('')}}assets/fontawesome/font-awesome-5.15.1-all.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{asset('')}}assets/jquery/jquery-1.12.4.min.js"></script> 
+    <script type="text/javascript" src="{{asset('')}}assets/plugins/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ asset('') }}assets/jqueryconfirm/jquery-confirm.min.js"></script>
+    <script src="{{ asset('') }}assets/plugins/moment/moment.min.js"> </script>
+    @yield('custom-css')
   </head>
   <body>
       <div class="container">
@@ -18,11 +41,12 @@
             </div>
         </div>
         <br>
-        <form id="frm-filter-dps">
+        <form id="frm-filter-dps">  
+          @csrf
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 float-right">
-              <input class="form-control" type="text" placeholder="Masukkan NIK penduduk" aria-label="Search" autofocus>
+              <input class="form-control" type="text" name="nik" id="nik" placeholder="Masukkan NIK penduduk" aria-label="Search" autofocus>
             </div>
             <div class="col-md-4" style="padding:0px;">
               <button class="btn btn-success" type="submit">
@@ -62,17 +86,18 @@
 
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-secondary btn-sm float-right">Reset</button>
+            <button type="button" id="btn-reset" class="btn btn-secondary btn-sm float-right">Reset</button>
           </div>
         </div>
       </div>
      
-    
+      <script src="{{ asset('') }}assets/plugins/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+      <script src="{{ asset('') }}js/scripts.js"></script>
+      <script src="/main.js"></script>
+      <script src="{{ asset('') }}assets/jquery/datatables.min.js"></script>
+      <script type="text/javascript" src="{{asset('')}}assets/jquerysignature/jquery.signature.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="{{ asset('js/daftar_pemilih/dps/home.js') }}" defer></script>
   </body>
 </html>

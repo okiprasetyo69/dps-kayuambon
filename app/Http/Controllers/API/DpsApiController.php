@@ -121,4 +121,9 @@ class DpsApiController extends BaseApiController
         return $data_get;
     }
 
+    public function getByNik($nik, Request $request){
+        $query = DpsList::where("nik", "like", "%".$nik."%");
+        $data_get = $query->first();
+        return $data_get;
+    }
 }

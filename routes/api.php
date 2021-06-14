@@ -27,6 +27,7 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('user', 'Api\UserApiController@user');
     });
 });
+//User
 Route::post('/user', 'Api\UserApiController@createOrUpdate');
 Route::get('/user/datatable', 'Api\UserApiController@index');
 Route::post('/user/listuser', 'Api\UserApiController@userDatatable');
@@ -34,5 +35,12 @@ Route::post('/user/delete/{id}', 'Api\UserApiController@delete');
 Route::get('/user/detail/{id}', 'Api\UserApiController@detail');
 Route::post('/roles', 'Api\UserApiController@getRoles');
 
+//DPS
+Route::post('/dps', 'Api\DpsApiController@createOrUpdate');
+Route::post('/dps/datatable', 'Api\DpsApiController@dpsDatatable');
+Route::get('/dps/detail/{id}', 'Api\DpsApiController@detail');
+Route::post('/dps/delete/{id}', 'Api\DpsApiController@delete');
+
+//Absence
 Route::post('/absence', 'Api\AbsenceApiController@save');
 Route::post('/listabsence', 'Api\AbsenceApiController@getListDataAbsence');

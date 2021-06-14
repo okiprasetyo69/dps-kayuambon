@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-    <title>Absence & Signature</title>
+    <title>Kayuambon Election</title>
     <link rel="manifest" href="/manifest.json">
     <link href="{{ asset('') }}css/styles.css" rel="stylesheet" />
     <link href="{{ asset('') }}css/custom.css" rel="stylesheet" />

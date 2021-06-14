@@ -9,11 +9,11 @@
           </button>
         </div>
         <div class="modal-body">
-            <form id="frm-add-user">
+            <form id="frm-add-dps">
                 @csrf
                 <div class="form-group">
                     <label for="">NKK</label>
-                    <input type="hidden" name="id" class="form-control" id="user_id">
+                    <input type="hidden" name="id" class="form-control" id="dps_id">
                     <input type="text" name="nkk" class="form-control" id="nkk" placeholder="Masukkan NKK">
                     <span id="err_name"> </span>
                 </div>
@@ -92,3 +92,5 @@
       </div>
     </div>
   </div>
+
+  

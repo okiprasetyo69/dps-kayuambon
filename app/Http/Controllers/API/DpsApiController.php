@@ -4,9 +4,10 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseApiController;
-use App\Http\Controllers\Api\QueryFilters\UserQueryFilter;
+use App\Http\Controllers\Api\QueryFilters\DpsQueryFilter;
 use App\User;
 use App\Role;
+use App\DpsList;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Carbon\Carbon;
@@ -22,83 +23,77 @@ class DpsApiController extends BaseApiController
     }
 
 
-    public function userDatatable(Request $request)
+    public function dpsDatatable(Request $request)
     {
-        $userQueryFilter = new UserQueryFilter($request->all());
-        $userQuery = User::orderBy('id', 'ASC');
-        if ($userQueryFilter->get_search_text() != null) {
-            $userQuery = $userQuery->where("name", "like", "%" . $userQueryFilter->get_search_text() . "%");
+        $dpsQueryFilter = new DpsQueryFilter($request->all());
+        $dpsQuery = DpsList::orderBy('id', 'ASC');
+        if ($dpsQueryFilter->get_search_text() != null) {
+            $dpsQuery = $dpsQuery->where("nama", "like", "%" . $dpsQueryFilter->get_search_text() . "%");
         }
-        $count = (clone $userQuery)->count();
-        $result = $userQuery->limit($userQueryFilter->get_length())->offset($userQueryFilter->get_start());
+        $count = (clone $dpsQuery)->count();
+        $result = $dpsQuery->limit($dpsQueryFilter->get_length())->offset($dpsQueryFilter->get_start());
         $data_get = $result->get();
-        $data = $this->set_datatable_response($userQueryFilter->get_draw(), $count, $result->get());
+        $data = $this->set_datatable_response($dpsQueryFilter->get_draw(), $count, $result->get());
         return $this->success_response_datatable();
     }
 
     public function createOrUpdate(Request $request){
-        /*
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|min:8',
-            'c_password'=> 'required|same:password',
-            'role_id' => 'required',
-            'role_name' => 'required'
-        ]);
-        */
         $ruleUser = [
-            'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|min:8',
-            'c_password'=> 'required|same:password',
-            'role_id' => 'required',
-            'role_name' => 'required'
+            'nkk' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'tempat_lahir'=> 'required',
+            'tgl_lahir' => 'required',
+            'kawin' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'difabel' => 'required',
+            'sumberdata' => 'required',
+            'tps' => 'required'
         ];
         $validator = Validator::make($request->all(), $ruleUser);
 
         if($validator->fails()){
             return response($validator->messages()->toArray(), 400);
-            //return Redirect::back()->withErrors($validator);
         }
-        
         $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'role_id' => $request->role_id,
+            'nkk' => $request->nkk,
+            'nik' => $request->nik,
+            'nama' => $request->nama,
+            'tempat_lahir'=> $request->tempat_lahir,
+            'tgl_lahir' => $request->tgl_lahir,
+            'kawin' => $request->kawin,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat' => $request->alamat,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'difabel' => $request->difabel,
+            'sumberdata' => $request->sumberdata,
+            'tps' => $request->tps,
         ];
 
         if($request->id == ""){
-            $user = new User([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-                'role_id' => $request->role_id,
+            $dps_list = new DpsList([
+                'nkk' => $request->nkk,
+                'nik' => $request->nik,
+                'nama' => $request->nama,
+                'tempat_lahir'=> $request->tempat_lahir,
+                'tgl_lahir' => $request->tgl_lahir,
+                'kawin' => $request->kawin,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'alamat' => $request->alamat,
+                'rt' => $request->rt,
+                'rw' => $request->rw,
+                'difabel' => $request->difabel,
+                'sumberdata' => $request->sumberdata,
+                'tps' => $request->tps,
             ]);
-            //Give role permission based laravel spatie
-            $user->assignRole($request->role_name);
-            $user->save();
-            //TODO : Its can used send email but please check connection to mail cz Connection could not be established with host
-            /*
-            $userMail = new User([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => $request->password,
-
-            ]);
-            Mail::send('email.index', ['user' => $userMail, 'data' => $data], function ($message) use ($user, $data) {
-                $message->from('hris@cisangkan.co.id', 'Absence Online Cisangkan');
-                $message->to($user->email, $user->name, $user->password)
-                        ->subject('Authentication Absence Online');
-            });
-            */
+            $dps_list->save();
         } else {
-            $update_user = User::where('id', $request->id);
-            $update_user = $update_user->update($data);
-            $update_role = DB::table('model_has_roles')->where('model_id', $request->id);
-            $update_role = $update_role->update(['role_id'=>$request->role_id]);
-           
+            $update_dps = DpsList::where('id', $request->id);
+            $update_dps = $update_dps->update($data);
         }
         return response()->json([
             'message' => 'Successfully created or update user !'
@@ -106,15 +101,13 @@ class DpsApiController extends BaseApiController
     }
 
     public function delete($id){
-        $user =  User::find($id);
-        $user_role = DB::table('model_has_roles')->where('model_id', $id);
-        if (!$user) {
+        $dps =  DpsList::find($id);
+        if (!$dps) {
             $data = [
                 "message" => "id not found",
             ];
         } else {
-            $user->delete();
-            $user_role->delete();
+            $dps->delete();
             $data = [
                 "message" => "success_deleted"
             ];
@@ -123,8 +116,7 @@ class DpsApiController extends BaseApiController
     }
 
     public function detail($id, Request $request){
-        $userQueryFilter = new UserQueryFilter($request->all());
-        $query = User::where("id", $id);
+        $query = DpsList::where("id", $id);
         $data_get = $query->first();
         return $data_get;
     }

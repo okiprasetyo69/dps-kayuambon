@@ -65,4 +65,5 @@
 @endsection
 @section('pagespecificscripts')
     <script type="text/javascript" src="{{ asset('js/daftar_pemilih/dps/index.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/daftar_pemilih/dps/add_dps.js') }}" defer></script>
 @stop

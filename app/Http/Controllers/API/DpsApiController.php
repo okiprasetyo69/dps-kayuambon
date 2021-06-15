@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 Use Redirect;
 use App\Imports\DpsImport;
-use Excel;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DpsApiController extends BaseApiController
 {
@@ -130,7 +130,14 @@ class DpsApiController extends BaseApiController
     }
 
     public function importFile(Request $request){
-        Excel::import(new DpsImport);
+        $this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+        $file = $request->file('file');
+        $file_name = rand().$file->getClientOriginalName();
+        $file->move('file_dps',$file_name);
+        Excel::import(new DpsImport, public_path('/file_dps/'.$file_name));
+        //Excel::import(new DpsImport);
         return response()->json('Success import', 200);
     }
 }

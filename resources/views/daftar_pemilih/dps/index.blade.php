@@ -1,5 +1,5 @@
 @extends('layout.home')
-@section('title', 'User Settings')
+@section('title', 'Daftar DPS')
 @section('content')
     <!-- Start div layoutSidenav_content-->
     <div id="layoutSidenav_content">
@@ -13,6 +13,14 @@
                         List DPS
                     </div>
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <div class="loader text-center"></div>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                       
                         <!-- Button trigger modal  -->
                         <div class="row">
                             <div class="col-md-2">

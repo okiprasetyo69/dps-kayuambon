@@ -2,6 +2,7 @@ var tableDps;
 $(document).ready(function () {
     //console.log('Test')
     listTableDps();
+    $(".loader").hide();
     $('#search').on('keyup paste', function(){
         listTableDps();
     });
@@ -52,7 +53,7 @@ function listTableDps() {
                 return JSON.stringify(dataparam);
             },
             dataSrc: function (response) {
-                console.log(response);
+                //console.log(response);
                 return response.data;
             },
         },

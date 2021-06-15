@@ -40,7 +40,9 @@ $(document).ready(function () {
 
     //Import file
     $("body").on("submit", "#frm-import-file", function(e){
+        e.preventDefault();
         //console.log('Masuk')
+        //return ;
         $.ajax({
             type: "POST",
             url: "/api/dps/import",
@@ -48,12 +50,15 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             beforeSend: function () {
-                $("#btn-save").attr("disabled", true);
+                $("#btn-import").attr("disabled", true);
+                $("#modalImportFile").modal("toggle");
+                $(".loader").show();
             },
             success: function (response) {
-                //console.log(response);
+                console.log(response);
                 document.getElementById("frm-add-dps").reset();
-                
+                //$("#modalImportFile").modal("toggle");
+                $(".loader").hide();
                 $.confirm({
                     title: "Message ",
                     content: "Data berhasil di import !",
@@ -71,6 +76,9 @@ $(document).ready(function () {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 $("#btn-save").attr("disabled", false);
+            },
+            complete: function () {
+                $("#modalImportFile").find("#loading").hide();
             },
         });
     });

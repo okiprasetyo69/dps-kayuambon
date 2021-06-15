@@ -52,6 +52,7 @@ class DpsApiController extends BaseApiController
             'rt' => 'required',
             'rw' => 'required',
             'difabel' => 'required',
+            'keterangan' => 'required',
             'sumberdata' => 'required',
             'tps' => 'required'
         ];
@@ -72,6 +73,7 @@ class DpsApiController extends BaseApiController
             'rt' => $request->rt,
             'rw' => $request->rw,
             'difabel' => $request->difabel,
+            'keterangan' => $request->keterangan,
             'sumberdata' => $request->sumberdata,
             'tps' => $request->tps,
         ];
@@ -89,6 +91,7 @@ class DpsApiController extends BaseApiController
                 'rt' => $request->rt,
                 'rw' => $request->rw,
                 'difabel' => $request->difabel,
+                'keterangan' => $request->keterangan,
                 'sumberdata' => $request->sumberdata,
                 'tps' => $request->tps,
             ]);

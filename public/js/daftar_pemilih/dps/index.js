@@ -30,7 +30,7 @@ function listTableDps() {
                 previous: "‹",
                 next: "›",
             },
-            info: "Show _START_ till _END_ dari _TOTAL_ Users",
+            info: "Show _START_ till _END_ dari _TOTAL_ DPS",
             aria: {
                 paginate: {
                     previous: "Previous",
@@ -148,6 +148,7 @@ function addDps() {
     clearForm();
     $("#modal-title-dps").html("Add DPS")
     $("#btn-save").show();
+    $("#btn-save").attr('disabled', false);
     $("#modalAddDps").modal("toggle");
 }
 
@@ -278,6 +279,7 @@ function edit(id) {
             $("#tps").attr("readonly", false);
 
             $("#btn-save").show();
+            $("#btn-save").attr('disabled', false);
             $("#modalAddDps").modal("toggle");
         },
         error: function (xhr, ajaxOptions, thrownError) {

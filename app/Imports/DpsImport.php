@@ -15,13 +15,6 @@ class DpsImport implements ToModel
     public function model(array $row)
     {
         return new DpsList([
-            /*
-            'title' => $row[0],
-            'slug' => str_slug($row[0]),
-            'description' => $row[1],
-            'price' => $row[2],
-            'stock' => $row[3]
-            */
             'nkk' => $row[0],
             'nik' => $row[1],
             'nama' => $row[2],
@@ -33,8 +26,9 @@ class DpsImport implements ToModel
             'rt' => $row[8],
             'rw' => $row[9],
             'difabel' => $row[10],
-            'sumberdata' => $row[11],
-            'tps' => $row[12]
+            'keterangan' => $row[11],
+            'sumberdata' => $row[12],
+            'tps' => $row[13]
         ]);
     }
 }

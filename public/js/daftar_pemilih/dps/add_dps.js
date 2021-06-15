@@ -33,6 +33,7 @@ $(document).ready(function () {
                 });
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                showMessageValidate(xhr)
                 $("#btn-save").attr("disabled", false);
             },
         });
@@ -83,3 +84,64 @@ $(document).ready(function () {
         });
     });
 });
+
+function showMessageValidate(xhr){
+    $("#err_nkk").html("");
+    $("#err_nik").html("");
+    $("#err_nama").html("");
+    $("#err_tempat_lahir").html("");
+    $("#err_tgl_lahir").html("");
+    $("#err_kawin").html("");
+    $("#err_jenis_kelamin").html("");
+    $("#err_alamat").html("");
+    $("#err_rt").html("");
+    $("#err_rw").html("");
+    $("#err_difabel").html("");
+    $("#err_keterangan").html("");
+    $("#err_sumber_data").html("");
+    $("#err_tps").html("");
+    let err_nkk = xhr.responseJSON.nkk;
+    let err_nik = xhr.responseJSON.nik;
+    let err_nama =  xhr.responseJSON.nama;
+    let err_tempat_lahir =  xhr.responseJSON.tempat_lahir;
+    let err_tgl_lahir =  xhr.responseJSON.tgl_lahir;
+    let err_kawin =  xhr.responseJSON.kawin;
+    let err_jenis_kelamin =  xhr.responseJSON.jenis_kelamin;
+    let err_alamat =  xhr.responseJSON.alamat;
+    let err_rt =  xhr.responseJSON.rt;
+    let err_rw =  xhr.responseJSON.rw;
+    let err_difabel =  xhr.responseJSON.difabel;
+    let err_keterangan =  xhr.responseJSON.keterangan;
+    let err_sumber_data =  xhr.responseJSON.sumberdata;
+    let err_tps =  xhr.responseJSON.tps;
+    $("#err_nkk").html(err_nkk).attr("class", "badge badge-danger");
+    $("#err_nik").html(err_nik).attr("class", "badge badge-danger");
+    $("#err_nama").html(err_nama).attr("class", "badge badge-danger");
+    $("#err_tempat_lahir").html(err_tempat_lahir).attr("class", "badge badge-danger");
+    $("#err_tgl_lahir").html(err_tgl_lahir).attr("class", "badge badge-danger");
+    $("#err_kawin").html(err_kawin).attr("class", "badge badge-danger");
+    $("#err_jenis_kelamin").html(err_jenis_kelamin).attr("class", "badge badge-danger");
+    $("#err_alamat").html(err_alamat).attr("class", "badge badge-danger");
+    $("#err_rt").html(err_rt).attr("class", "badge badge-danger");
+    $("#err_rw").html(err_rw).attr("class", "badge badge-danger");
+    $("#err_difabel").html(err_difabel).attr("class", "badge badge-danger");
+    $("#err_keterangan").html(err_keterangan).attr("class", "badge badge-danger");
+    $("#err_sumber_data").html(err_sumber_data).attr("class", "badge badge-danger");
+    $("#err_tps").html(err_tps).attr("class", "badge badge-danger");
+}
+function clearMessagedValidate(){
+    $("#err_nkk").html("");
+    $("#err_nik").html("");
+    $("#err_nama").html("");
+    $("#err_tempat_lahir").html("");
+    $("#err_tgl_lahir").html("");
+    $("#err_kawin").html("");
+    $("#err_jenis_kelamin").html("");
+    $("#err_alamat").html("");
+    $("#err_rt").html("");
+    $("#err_rw").html("");
+    $("#err_difabel").html("");
+    $("#err_keterangan").html("");
+    $("#err_sumber_data").html("");
+    $("#err_tps").html("");
+}

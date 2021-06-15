@@ -132,7 +132,7 @@ function listTableDps() {
                         "<li><a class='text-dark edit' href='#' onclick='edit(" +
                         rowData.id +
                         ")'>Edit</a></li>" +
-                        "<li><a class='text-dark' href='#' onclick='deleteUser(" +
+                        "<li><a class='text-dark' href='#' onclick='deleteDps(" +
                         rowData.id +
                         ")'>Delete</a></li>" +
                         "</ul>" +
@@ -146,6 +146,7 @@ function listTableDps() {
 
 function addDps() {
     clearForm();
+    clearMessagedValidate()
     $("#modal-title-dps").html("Add DPS")
     $("#btn-save").show();
     $("#btn-save").attr('disabled', false);
@@ -154,6 +155,7 @@ function addDps() {
 
 function importFile() {
     $("#modalImportFile").modal("toggle");
+    
 }
 
 function detail(id) {
@@ -212,6 +214,7 @@ function detail(id) {
             $("#tps").attr("readonly", true);
 
             $("#btn-save").hide();
+            clearMessagedValidate();
             $("#modalAddDps").modal("toggle");
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -280,6 +283,7 @@ function edit(id) {
 
             $("#btn-save").show();
             $("#btn-save").attr('disabled', false);
+            clearMessagedValidate()
             $("#modalAddDps").modal("toggle");
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -292,10 +296,10 @@ function edit(id) {
     });
 }
 
-function deleteUser(id) {
+function deleteDps(id) {
     $.confirm({
-        title: "Delete User",
-        content: "Are you sure delete this user ?",
+        title: "Delete DPS",
+        content: "Apa anda yakin akan menghapus data ini ?",
         buttons: {
             cancel: {
                 text: "Cancel",
@@ -305,14 +309,14 @@ function deleteUser(id) {
                 text: "Delete DPS",
                 btnClass: "btn-danger",
                 action: function () {
-                    removeUser(id);
+                    removeDps(id);
                 },
             },
         },
     });
 }
 
-function removeUser(id) {
+function removeDps(id) {
     jQuery.ajax({
         type: "post",
         url: "/api/dps/delete/" + id,

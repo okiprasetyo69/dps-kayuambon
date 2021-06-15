@@ -15,17 +15,17 @@
                     <label for="">NKK</label>
                     <input type="hidden" name="id" class="form-control" id="dps_id">
                     <input type="text" name="nkk" class="form-control" id="nkk" placeholder="Masukkan NKK">
-                    <span id="err_name"> </span>
+                    <span id="err_nkk"> </span>
                 </div>
                 <div class="form-group">
                   <label for="">NIK</label>
                   <input type="text" name="nik" class="form-control" id="nik" placeholder="Masukkan NIK">
-                  <span id="err_name"> </span>
+                  <span id="err_nik"> </span>
                 </div>
                 <div class="form-group">
                   <label for="">Nama</label>
                   <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan nama">
-                  <span id="err_name"> </span>
+                  <span id="err_nama"> </span>
                 </div>
                 <div class="form-group">
                   <label for="">Tempat Lahir</label>
@@ -55,7 +55,7 @@
                 <div class="form-group">
                   <label for="">RT</label>
                   <input type="text" name="rt" class="form-control" id="rt" placeholder="">
-                  <span id="err_email"> </span>
+                  <span id="err_rt"> </span>
                 </div>
                 <div class="form-group">
                   <label for="">RW</label>

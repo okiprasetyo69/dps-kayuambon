@@ -58,7 +58,7 @@
         </form>
         <br>
         <div class="row">
-          <div class="col">
+          <div class="col" style="padding:0px;">
             <table class="table table-striped table-border">
               <thead>
                 <tr class="text-center">

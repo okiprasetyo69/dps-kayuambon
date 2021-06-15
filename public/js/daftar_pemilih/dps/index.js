@@ -146,6 +146,7 @@ function listTableDps() {
 
 function addDps() {
     clearForm();
+    $("#modal-title-dps").html("Add DPS")
     $("#btn-save").show();
     $("#modalAddDps").modal("toggle");
 }
@@ -161,7 +162,7 @@ function detail(id) {
         beforeSend: function () {},
         success: function (response) {
             //console.log(response)
-            $("#modal-title").html("Detail");
+            $("#modal-title-dps").html("Detail DPS");
 
             $("#dps_id").val(response.id);
             $("#nkk").val(response.nkk);
@@ -228,7 +229,7 @@ function edit(id) {
         url: "/api/dps/detail/" + id,
         beforeSend: function () {},
         success: function (response) {
-            $("#modal-title").html("Edit");
+            $("#modal-title-dps").html("Edit");
 
             $("#dps_id").val(response.id);
             $("#nkk").val(response.nkk);
@@ -346,19 +347,47 @@ function removeUser(id) {
 
 function clearForm() {
     $("#dps_id").val("");
+    $("#dps_id").attr("readonly", false);
+
     $("#nkk").val("");
+    $("#nkk").attr("readonly", false);
+
     $("#nik").val("");
+    $("#nik").attr("readonly", false);
+
     $("#nama").val("");
+    $("#nama").attr("readonly", false);
+
     $("#tempat_lahir").val("");
+    $("#tempat_lahir").attr("readonly", false);
+
     $("#tgl_lahir").val("");
-    $("#tgl_lahir").val("");
+    $("#tgl_lahir").attr("readonly", false);
+
     $("#kawin").val("");
+    $("#kawin").attr("readonly", false);
+
     $("#jenis_kelamin").val("");
+    $("#jenis_kelamin").attr("readonly", false);
+
     $("#alamat").val("");
+    $("#alamat").attr("readonly", false);
+
     $("#rt").val("");
+    $("#rt").attr("readonly", false);
+
     $("#rw").val("");
+    $("#rw").attr("readonly", false);
+
     $("#difabel").val("");
+    $("#difabel").attr("readonly", false);
+
     $("#keterangan").val("");
+    $("#keterangan").attr("readonly", false);
+
     $("#sumberdata").val("");
+    $("#sumberdata").attr("readonly", false);
+
     $("#tps").val("");
+    $("#tps").attr("readonly", false);
 }

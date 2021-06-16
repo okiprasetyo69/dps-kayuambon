@@ -1,4 +1,4 @@
-var cacheName = 'Base Project';
+var cacheName = 'Kayuambon';
 var filesToCache = [
     '/',
     //'/index.html',

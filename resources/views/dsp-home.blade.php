@@ -216,7 +216,7 @@
       <div class="row mt-4">
         <div class="container">
           <div class="col" style="padding:0px;">
-            <button type="button" id="btn-reset" class="btn btn-secondary btn-md  float-left ">Reset</button>
+            <button type="button" id="btn-reset" class="btn btn-dark btn-md  float-left ">Reset</button>
           </div>
         </div>
       </div>

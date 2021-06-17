@@ -97,15 +97,15 @@
                     <img class="card-img-top img-fluid rounded mx-auto d-block" id="img-dps" style="height:100px; width:100px;">
                     <div class="card-body">
                       <h5 class="card-title text-center" id="nama"> </h5>
-                      <p class="card-text text-center" id="alamat"> </p>
+                      <p class="card-text text-center font-weight-bold" id="alamat"> </p>
                     </div>
                     <ul class="list-group list-group-flush">
                       <div class="row">
                         <div class="col-md-6">
-                          <li class="list-group-item" id="nkk"> </li>
+                          <li class="list-group-item font-weight-bold" id="nkk"> </li>
                         </div>
                         <div class="col-md-6 pd-0">
-                          <li class="list-group-item" id="nik-card"></li>
+                          <li class="list-group-item font-weight-bold" id="nik-card"></li>
                         </div>
                       </div>
                       <div class="row">
@@ -142,10 +142,10 @@
                       </div>
                       <div class="row">
                         <div class="col-md-6">
-                          <li class="list-group-item" id="sumberdata"></li>
+                          <li class="list-group-item font-weight-bold" id="sumberdata"></li>
                         </div>
                         <div class="col-md-6 pd-0">
-                          <li class="list-group-item" id="tps"></li>
+                          <li class="list-group-item font-weight-bold" id="tps"></li>
                         </div>
                       </div>
                     </ul>

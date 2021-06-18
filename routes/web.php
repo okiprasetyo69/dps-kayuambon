@@ -51,4 +51,7 @@ Route::group(['middleware' => ['role:security']], function () {
     Route::get('/security', 'HomeController@IndexSecurity')->name('security');
 });
 
-//Route::get('/sendmail','EmailController@send_mail');
+Route::group(['middleware' => ['role:user']], function () {
+    Route::get('/user', 'HomeController@userView')->name('user');
+});
+

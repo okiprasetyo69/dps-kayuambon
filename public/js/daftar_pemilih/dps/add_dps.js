@@ -54,12 +54,16 @@ $(document).ready(function () {
                 $("#btn-import").attr("disabled", true);
                 $("#modalImportFile").modal("toggle");
                 $(".loader").show();
+                $("#btn-add-dps").attr("disabled", true);
+                $("#btn-import-dps").attr("disabled", true);
             },
             success: function (response) {
                 console.log(response);
                 document.getElementById("frm-add-dps").reset();
                 //$("#modalImportFile").modal("toggle");
                 $(".loader").hide();
+                $("#btn-add-dps").attr("disabled", false);
+                $("#btn-import-dps").attr("disabled", false);
                 $.confirm({
                     title: "Message ",
                     content: "Data berhasil di import !",
@@ -77,6 +81,8 @@ $(document).ready(function () {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 $("#btn-save").attr("disabled", false);
+                $("#btn-add-dps").attr("disabled", false);
+                $("#btn-import-dps").attr("disabled", false);
             },
             complete: function () {
                 $("#modalImportFile").find("#loading").hide();

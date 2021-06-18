@@ -56,6 +56,8 @@ class LoginController extends Controller
             return redirect()->route('head');
         } else if ($user->hasRole('security')) {
             return redirect()->route('security');
+        } else if($user->hasRole('user')){
+            return redirect()->route('user');
         } else{
             return redirect()->guest('auth/login');
             //return redirect()->route('auth/login');

@@ -6,12 +6,52 @@
                 <div class="nav">
                     <!-- Login as Admin -->
                     @if (Auth::user()->role_id == 3)
-                        <div class="sb-sidenav-menu-heading">Daftar Pemilih</div>
-                        <a class="nav-link" href="/dps">
+                        <div class="sb-sidenav-menu-heading">Dashboard</div>
+                        <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon">
-                                <i class="fas fa-calendar-check"></i>
+                                <i class="fas fa-tachometer-alt"></i>
                             </div>
-                        DPS
+                            Dashboard Admin
+                        </a>
+                    @elseif (Auth::user()->role_id == 4)
+                        <div class="sb-sidenav-menu-heading">Dashboard</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            Dashboard Employee
+                        </a>
+                    @elseif (Auth::user()->role_id == 2)
+                        <div class="sb-sidenav-menu-heading">Dashboard</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            Dashboard Supervisior
+                        </a>
+                    @elseif (Auth::user()->role_id == 5)
+                        <div class="sb-sidenav-menu-heading">Dashboard</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            Dashboard Head
+                        </a>
+                    @elseif (Auth::user()->role_id == 6)
+                        <div class="sb-sidenav-menu-heading">Dashboard</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            Dashboard Security
+                        </a>
+                    @elseif (Auth::user()->role_id == 7)
+                        <div class="sb-sidenav-menu-heading">Dashboard</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            Dashboard Public
                         </a>
                     @else
                     <!-- Login as superadmin -->   

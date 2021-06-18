@@ -13,15 +13,15 @@
               @csrf
               <div class="col">
                 <div class="form-group">
-                 
-                  <input type="file" name="file" class="form-control-file" id="file">
+                  <label> Upload File </label>
+                  <input type="file" name="file" class="form-control" id="file">
                 </div>
               </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
           <i class="fas fa-window-close"></i> Close</button>
-        <button type="submit" class="btn btn-primary btn-sm" id="btn-import"> <i class="fas fa-file-download"></i> Import</button>
+        <button type="submit" class="btn btn-primary btn-sm" id="btn-import"> <i class="fas fa-file-upload"></i> Import</button>
       </div>
           </form>
     </div>

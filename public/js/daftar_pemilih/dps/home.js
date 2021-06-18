@@ -14,6 +14,26 @@ $(document).ready(function () {
     $("body").on("submit", "#frm-filter-dps", function (e) {
         e.preventDefault();
         let nik = $('#nik').val();
+        if(nik == ""){
+            $.confirm({
+                title: "Message",
+                content: "Masukkan NIK !",
+                buttons: {
+                    somethingElse: {
+                        text: "Ok",
+                        btnClass: "btn-success",
+                        keys: ["enter", "shift"],
+                        action: function () {
+                            $('#nik').val("");
+                            $('#nik').html("");
+                            $('#nik').focus(); 
+                            //ocation.reload();
+                        },
+                    },
+                },
+            });
+            return;
+        }
         //console.log('test')
         $.ajax({
             type: "get",
@@ -39,7 +59,6 @@ $(document).ready(function () {
                         },
                     });
                 } else {
-                    //let row_data = '';
                     let jenis_kelamin = response.jenis_kelamin;
                     //let male =  "{!! asset('images/user_male.jpg') !!}";
                     //let female =  "{!! asset('images/user_female.png') !!}";
@@ -48,15 +67,12 @@ $(document).ready(function () {
                   
                     $('#dps-card').show();
                     $('#btn-reset').show();
-                    
                     clearElement();
-                    //row_data= '<tr class="text-center"><td> '+response.nkk+' </td><td>'+response.nik+'</td><td>'+response.nama+'</td><td>'+response.tempat_lahir+'</td><td>'+response.tgl_lahir+'</td><td>'+response.kawin+'</td><td>'+response.alamat+'</td><td>'+response.rt+'</td><td>'+response.rw+'</td><td>'+response.difabel+'</td><td>'+ response.keterangan +'</td><td>'+response.sumberdata+'</td><td>'+response.tps+'</td> </tr>';
                     if(jenis_kelamin == "L"){
                         $("#img-dps").attr('src', male)
                     } else {
                         $('#img-dps').attr('src', female)
                     }   
-
                     $('#nama').html('Nama : ' +response.nama);
                     $('#alamat').html('Alamat : ' +response.alamat);
                     $('#nkk').html('NKK : ' + response.nama);

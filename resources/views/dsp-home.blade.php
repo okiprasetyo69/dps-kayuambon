@@ -94,18 +94,18 @@
       <div class="row mt-4">
           <div class="container" id="dps-card">
               <div class="card">
-                    <img class="card-img-top img-fluid rounded mx-auto d-block" id="img-dps" style="height:100px; width:100px;">
+                    <img class="card-img-top img-fluid rounded mx-auto d-block" id="img-dps" style="height:225px; width:215px;">
                     <div class="card-body">
-                      <h5 class="card-title text-center" id="nama"> </h5>
-                      <p class="card-text text-center font-weight-bold" id="alamat"> </p>
+                      <h5 class="card-title text-center text-light bg-dark" id="nama"> </h5>
+                      <p class="card-text text-center font-weight-bold text-light bg-dark" id="alamat"> </p>
                     </div>
                     <ul class="list-group list-group-flush">
                       <div class="row">
                         <div class="col-md-6">
-                          <li class="list-group-item font-weight-bold" id="nkk"> </li>
+                          <li class="list-group-item text-light bg-info" id="nkk"> </li>
                         </div>
                         <div class="col-md-6 pd-0">
-                          <li class="list-group-item font-weight-bold" id="nik-card"></li>
+                          <li class="list-group-item text-light bg-info" id="nik-card"></li>
                         </div>
                       </div>
                       <div class="row">
@@ -142,10 +142,10 @@
                       </div>
                       <div class="row">
                         <div class="col-md-6">
-                          <li class="list-group-item font-weight-bold" id="sumberdata"></li>
+                          <li class="list-group-item text-light bg-info" id="sumberdata"></li>
                         </div>
                         <div class="col-md-6 pd-0">
-                          <li class="list-group-item font-weight-bold" id="tps"></li>
+                          <li class="list-group-item text-light bg-info" id="tps"></li>
                         </div>
                       </div>
                     </ul>
@@ -158,61 +158,7 @@
               </div>
           </div>
       </div>
-        <!-- 
-      <div class="container">
-        <br>
-        <form id="frm-filter-dps">  
-          @csrf
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4 float-right">
-              <input class="form-control" type="text" name="nik" id="nik" placeholder="Masukkan NIK penduduk" aria-label="Search" autofocus>
-            </div>
-            <div class="col-md-4" style="padding:0px;">
-              <button class="btn btn-success" type="submit">
-                <i class="fas fa-search-minus">  </i> 
-                Cari
-              </button>
-            </div>
-        </div>
-        </form>
-        <br>
       
-        <div class="row">
-          <div class="col" style="padding:0px;">
-            <table class="table table-striped table-border table-responsive">
-              <thead>
-                <tr class="text-center">
-                  <th>NKK</th>
-                  <th>NIK</th>
-                  <th>NAMA</th>
-                  <th>TEMPAT LAHIR</th>
-                  <th>TANGGAL LAHIR</th>
-                  <th>KAWIN</th>
-                  <th>ALAMAT</th>
-                  <th>RT</th>
-                  <th>RW</th>
-                  <th>DIFABEL</th>
-                  <th>KETERANGAN</th>
-                  <th>SUMBER DATA</th>
-                  <th>TPS</th>
-                </tr>
-              </thead>
-              <tbody id="rowData">
-               
-              </tbody>
-            </table>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col">
-            <button type="button" id="btn-reset" class="btn btn-secondary btn-sm float-right">Reset</button>
-          </div>
-        </div>
-      
-      </div>
-        -->
       <div class="row mt-4">
         <div class="container">
           <div class="col" style="padding:0px;">

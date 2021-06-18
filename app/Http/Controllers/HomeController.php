@@ -37,7 +37,8 @@ class HomeController extends Controller
 
     public function IndexAdmin()
     {
-        return view('absence.index');
+        //return view('absence.index');
+        return view('admin.index');
     }
 
     public function IndexSpvManAdmin()
@@ -63,5 +64,9 @@ class HomeController extends Controller
     public function IndexUser()
     {
         return view('users.index');
+    }
+
+    public function userView(){
+        return view('users.homepage_user');
     }
 }

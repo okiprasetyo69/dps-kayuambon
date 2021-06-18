@@ -24,12 +24,12 @@
                         <!-- Button trigger modal  -->
                         <div class="row">
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-primary btn-md btn-block" onclick="addDps()">
+                                <button type="button" id="btn-add-dps" class="btn btn-primary btn-md btn-block" onclick="addDps()">
                                     <i class="fas fa-user-plus"></i> Add
                                 </button>
                             </div>
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-info btn-md btn-block" onclick="importFile()">
+                                <button type="button" id="btn-import-dps" class="btn btn-info btn-md btn-block" onclick="importFile()">
                                     <i class="fas fa-file-import"></i> Import
                                 </button>
                             </div>
